@@ -25,6 +25,9 @@ Partial Class Register
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Register))
         Panel1 = New Panel()
         Panel2 = New Panel()
+        RadioButton2 = New RadioButton()
+        RadioButton1 = New RadioButton()
+        Label26 = New Label()
         ShowPassword_CheckBox = New CheckBox()
         BirthDate_DateTimePicker = New DateTimePicker()
         Label8 = New Label()
@@ -59,6 +62,9 @@ Partial Class Register
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.ControlDark
+        Panel2.Controls.Add(RadioButton2)
+        Panel2.Controls.Add(RadioButton1)
+        Panel2.Controls.Add(Label26)
         Panel2.Controls.Add(ShowPassword_CheckBox)
         Panel2.Controls.Add(BirthDate_DateTimePicker)
         Panel2.Controls.Add(Label8)
@@ -81,6 +87,39 @@ Partial Class Register
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(787, 589)
         Panel2.TabIndex = 0
+        ' 
+        ' RadioButton2
+        ' 
+        RadioButton2.AutoSize = True
+        RadioButton2.Location = New Point(176, 321)
+        RadioButton2.Name = "RadioButton2"
+        RadioButton2.Size = New Size(63, 19)
+        RadioButton2.TabIndex = 89
+        RadioButton2.TabStop = True
+        RadioButton2.Text = "Female"
+        RadioButton2.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton1
+        ' 
+        RadioButton1.AutoSize = True
+        RadioButton1.Location = New Point(103, 322)
+        RadioButton1.Name = "RadioButton1"
+        RadioButton1.Size = New Size(51, 19)
+        RadioButton1.TabIndex = 88
+        RadioButton1.TabStop = True
+        RadioButton1.Text = "Male"
+        RadioButton1.UseVisualStyleBackColor = True
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Sylfaen", 12.75F)
+        Label26.Location = New Point(46, 321)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(42, 22)
+        Label26.TabIndex = 87
+        Label26.Text = "Sex: "
+        Label26.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' ShowPassword_CheckBox
         ' 
@@ -290,4 +329,7 @@ Partial Class Register
     Friend WithEvents BirthDate_DateTimePicker As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents ShowPassword_CheckBox As CheckBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label26 As Label
 End Class

@@ -31,10 +31,10 @@ Partial Class Login
         ShowPassword_CheckBox = New CheckBox()
         Password_Box = New TextBox()
         Label4 = New Label()
-        Email_Box = New TextBox()
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
+        Email_Box = New TextBox()
         Panel2.SuspendLayout()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -73,7 +73,7 @@ Partial Class Login
         SignUp_Button.BackColor = SystemColors.ControlDark
         SignUp_Button.FlatAppearance.BorderSize = 0
         SignUp_Button.FlatStyle = FlatStyle.Flat
-        SignUp_Button.Font = New Font("Sylfaen", 12F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
+        SignUp_Button.Font = New Font("Sylfaen", 12.0F, FontStyle.Underline, GraphicsUnit.Point, CByte(0))
         SignUp_Button.Location = New Point(233, 346)
         SignUp_Button.Name = "SignUp_Button"
         SignUp_Button.Size = New Size(144, 36)
@@ -83,7 +83,7 @@ Partial Class Login
         ' 
         ' Label3
         ' 
-        Label3.Font = New Font("Sylfaen", 12F)
+        Label3.Font = New Font("Sylfaen", 12.0F)
         Label3.Location = New Point(25, 353)
         Label3.Name = "Label3"
         Label3.Size = New Size(175, 36)
@@ -112,7 +112,7 @@ Partial Class Login
         ' 
         ' Password_Box
         ' 
-        Password_Box.Font = New Font("Segoe UI", 15F)
+        Password_Box.Font = New Font("Segoe UI", 15.0F)
         Password_Box.Location = New Point(25, 232)
         Password_Box.Multiline = True
         Password_Box.Name = "Password_Box"
@@ -122,25 +122,16 @@ Partial Class Login
         ' 
         ' Label4
         ' 
-        Label4.Font = New Font("Sylfaen", 12F)
+        Label4.Font = New Font("Sylfaen", 12.0F)
         Label4.Location = New Point(25, 208)
         Label4.Name = "Label4"
         Label4.Size = New Size(161, 36)
         Label4.TabIndex = 14
         Label4.Text = "Password"
         ' 
-        ' Email_Box
-        ' 
-        Email_Box.Font = New Font("Segoe UI", 15F)
-        Email_Box.Location = New Point(25, 162)
-        Email_Box.Multiline = True
-        Email_Box.Name = "Email_Box"
-        Email_Box.Size = New Size(352, 32)
-        Email_Box.TabIndex = 13
-        ' 
         ' Label2
         ' 
-        Label2.Font = New Font("Sylfaen", 12F)
+        Label2.Font = New Font("Sylfaen", 12.0F)
         Label2.Location = New Point(25, 134)
         Label2.Name = "Label2"
         Label2.Size = New Size(161, 36)
@@ -165,9 +156,18 @@ Partial Class Login
         Panel1.Size = New Size(437, 472)
         Panel1.TabIndex = 0
         ' 
+        ' Email_Box
+        ' 
+        Email_Box.Font = New Font("Segoe UI", 15.0F)
+        Email_Box.Location = New Point(25, 162)
+        Email_Box.Multiline = True
+        Email_Box.Name = "Email_Box"
+        Email_Box.Size = New Size(352, 32)
+        Email_Box.TabIndex = 13
+        ' 
         ' Login
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
@@ -192,7 +192,7 @@ Partial Class Login
     Friend WithEvents ShowPassword_CheckBox As CheckBox
     Friend WithEvents Password_Box As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Email_Box As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Email_Box As TextBox
 End Class

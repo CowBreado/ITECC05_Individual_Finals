@@ -10,6 +10,7 @@ Public Class Register
     Dim FirstName As String
     Dim LastName As String
     Dim MiddleName As String
+    Dim Gender As String
 
     Dim EmailAddress As String
     Dim Password As String
@@ -22,10 +23,17 @@ Public Class Register
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles SignUp_Button.Click
 
-        MessageBox.Show(BirthDate)
+        'MessageBox.Show(BirthDate)
         MySqlConn = New MySqlConnection
         MySqlConn.ConnectionString = $"server=127.0.0.1;database={Current_DB};Uid=root;Pwd=;"
         Try
+
+
+            If BirthDate_DateTimePicker.Value = BirthDate_DateTimePicker.MinDate Then
+                BirthDate = New DateTime(1900, 1, 1)
+            Else
+                BirthDate = BirthDate_DateTimePicker.Value
+            End If
 
             MySqlConn.Open()
             'This first check if the email you want to sign up with is already existing or not.
@@ -36,12 +44,13 @@ Public Class Register
 
             If Not Reader.HasRows Then
                 Reader.Close()
-                Dim Query As String = $"insert into {Current_DB}.employees(FirstName, LastName, MiddleName, BirthDate, Email, Password) Values (@FirstName, @LastName, @MiddleName, @BirthDate, @EmailAddress, @Password)"
+                Dim Query As String = $"insert into {Current_DB}.employees(FirstName, LastName, MiddleName, BirthDate, Email, Password, Gender) Values (@FirstName, @LastName, @MiddleName, @BirthDate, @EmailAddress, @Password, @Gender)"
                 Command = New MySqlCommand(Query, MySqlConn)
                 Command.Parameters.AddWithValue("@FirstName", FirstName)
                 Command.Parameters.AddWithValue("@LastName", LastName)
                 Command.Parameters.AddWithValue("@MiddleName", MiddleName)
                 Command.Parameters.AddWithValue("@BirthDate", BirthDate)
+                Command.Parameters.AddWithValue("@Gender", Gender)
                 Command.Parameters.AddWithValue("@EmailAddress", EmailAddress)
                 Command.Parameters.AddWithValue("@Password", Password)
                 Reader = Command.ExecuteReader
@@ -63,25 +72,6 @@ Public Class Register
 
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
-
-    Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles MiddleName_TextBox.TextChanged
-        MiddleName = MiddleName_TextBox.Text
-    End Sub
 
     Private Sub FirstName_TextBox_TextChanged(sender As Object, e As EventArgs) Handles FirstName_TextBox.TextChanged
         FirstName = FirstName_TextBox.Text
@@ -117,5 +107,17 @@ Public Class Register
         Else
             Password_TextBox.PasswordChar = ""
         End If
+    End Sub
+
+    Private Sub MiddleName_TextBox_TextChanged(sender As Object, e As EventArgs) Handles MiddleName_TextBox.TextChanged
+        MiddleName = MiddleName_TextBox.Text
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        Gender = "Male"
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        Gender = "Female"
     End Sub
 End Class

@@ -42,6 +42,7 @@ Public Class Login
                 Dim Dashboard As New Dashboard
                 Dashboard.email = email
                 Dashboard.Show()
+                Me.Hide()
             Else
                 MessageBox.Show($"Email {email} Not Found!{vbNewLine}Password {password} Not Found!")
                 Return
@@ -75,6 +76,10 @@ Public Class Login
     End Sub
 
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
 End Class
